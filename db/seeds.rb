@@ -8,9 +8,9 @@
 
 # Delete previous
 puts('Clearing Database...')
-Messages.destroy_all
-Users.destroy_all
-Channels.destroy_all
+Message.destroy_all
+User.destroy_all
+Channel.destroy_all
 puts('Database cleared.')
 
 # Create Channels
@@ -18,8 +18,8 @@ puts('Creating Channels...')
 channels = [
   {name: "general"},
   {name: "react"},
-  {name: "london"}
-  {name: "paris"},
+  {name: "london"},
+  {name: "paris"}
 ]
 channels.map! do |channel|
   Channel.create!(channel)
@@ -49,6 +49,6 @@ messages = [
 ]
 
 messages.each do |message|
-  Channel.create!(channel)
+  Message.create!(message)
 end
 puts('Messages created.')

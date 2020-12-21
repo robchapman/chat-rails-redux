@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   resources :channels, only: [ :show ]
   root to: 'channels#show'
 end
