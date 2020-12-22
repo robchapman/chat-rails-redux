@@ -3,7 +3,6 @@ import ChannelList from '../containers/channel_list';
 import MessageList from '../containers/message_list';
 
 const App = (props) => {
-  console.log(props)
   return (
     <div className="messaging-wrapper">
       <div className="logo-container">
