@@ -2,8 +2,16 @@ class Api::V1::MessagesController < ApplicationController
   before_action :set_channel
 
   def index
-    messages = Message.order(created_at: :desc)
-    render json: messages
+    messages = Message.where("channel_id = #{@channel.id}").order(created_at: :desc)
+    messages_new = messages.map do |message|
+      {
+        "id": message.id,
+        "author": message.user.email,
+        "content": message.content,
+        "created_at": message.created_at
+      }
+    end
+    render json: messages_new
   end
 
   def create
